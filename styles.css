@@ -1,0 +1,100 @@
+#tabla_A {
+  background-color: #D62F06;
+}
+
+#tabla_B {
+  background-color: #CE8307;
+}
+
+#tabla_C {
+  background-image: url('ARGENTINA.jpg');
+}
+
+#tabla_D {
+  background-color: #CEAD07;
+}
+
+#tabla_E {
+  background-color: #80CE07;
+}
+
+#tabla_F {
+  background-color: #3ACE07;
+}
+
+#tabla_G {
+  background-color: #07CE31;
+}
+
+#tabla_H {
+  background-color: #07CEA4;
+}
+
+.group-table {
+    margin: 5px;
+    text-align: center;
+    border: 1px solid black;
+  }
+
+  .matches {
+    margin: 5px;
+    padding: 5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .match {
+    margin: 10px;
+  }
+
+  .groups {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+    margin: 5px;
+  }
+
+  th, td {
+    border: 1px solid black;
+    padding: 5px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.container div {
+    padding: 5px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+span {
+    text-align: center;
+}
+
+.container div section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container div section div {
+    padding-top: 1rem;
+}
+
+#ganador {
+  font-size: 40px;
+  text-align: center;
+  background-image: url('ARGENTINA.jpg');
+  background-size: cover;
+}
