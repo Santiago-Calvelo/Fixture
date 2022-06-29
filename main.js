@@ -15,7 +15,8 @@ document.getElementById('tabla_G').style.display = 'none';
 document.getElementById('fecha_G').style.display = 'none';
 document.getElementById('tabla_H').style.display = 'none';
 document.getElementById('fecha_H').style.display = 'none';
-document.getElementById('ganador').hidden = true;}
+document.getElementById('ganador').hidden = true;
+document.getElementById('bandera').hidden = true;}
 //botones para seleccionar tablas
 function Grupo_A() {
   document.getElementById('tabla_A').style.display = 'block';
@@ -196,7 +197,7 @@ function handleSubmit(event) {
   // console.log(`${local} ${golesLocal} | ${golesVisitante} ${visitante}`);
   let tds = document.querySelectorAll('td');
   for (let td of tds) {
-    if (td.textContent == local || td.textContent == visitante) {
+    if (td.textContent.includes(local) || td.textContent.includes(visitante)) {
       // si empatan
       if (empate) {
         td.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.textContent = parseInt(td.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.textContent) + 1;
@@ -205,7 +206,7 @@ function handleSubmit(event) {
       // PJ + 1
       td.nextElementSibling.nextElementSibling.textContent = parseInt(td.nextElementSibling.nextElementSibling.textContent) + 1;
     }
-    if (td.textContent == local) {
+    if (td.textContent.includes(local)) {
       // GF del local
       td.parentElement.children[7].textContent = parseInt(td.parentElement.children[7].textContent) + parseInt(golesLocal);
       // GC del local
@@ -218,7 +219,7 @@ function handleSubmit(event) {
         td.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.textContent = parseInt(td.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.textContent) + 1;
       }
     }
-    if (td.textContent == visitante) {
+    if (td.textContent.includes(visitante)) {
       // GF del visitante
       td.parentElement.children[7].textContent = parseInt(td.parentElement.children[7].textContent) + parseInt(golesVisitante);
       // GC del visitante
@@ -234,16 +235,16 @@ function handleSubmit(event) {
     //DIF
     td.parentElement.children[9].textContent = parseInt(td.parentElement.children[7].textContent) - parseInt(td.parentElement.children[8].textContent);
   }
+  // buscamos e imprimimos los más altos
   let td = document.querySelectorAll('td');
   var pais = document.getElementsByTagName('td');
   let puntaje = document.getElementsByTagName('td');
-  let INT_MIN = -2147483648;
-  let max = INT_MIN;
+  let max = 0;
   let seg = 0;
-  for (let i = 2; i <= 32; i += 10) {
-    if (max < puntaje[i].innerHTML) {
+  for (let a = 2; a <= 32; a += 10) {
+    if (max < puntaje[a].innerHTML) {
       seg = max;
-      max = puntaje[i].innerHTML;
+      max = puntaje[a].innerHTML;
     }
     if (pais[2].innerHTML == max)  document.getElementById('1A').value = pais[1].innerHTML;
     if (pais[12].innerHTML == max) document.getElementById('1A').value = pais[11].innerHTML;
@@ -254,10 +255,10 @@ function handleSubmit(event) {
     if (pais[22].innerHTML == seg) document.getElementById('2A').value = pais[21].innerHTML;
     if (pais[32].innerHTML == seg) document.getElementById('2A').value = pais[31].innerHTML;
   }
-  for (let i = 42; i <= 72; i += 10) {
-    if (max < puntaje[i].innerHTML) {
+  for (let b = 42; b <= 72; b += 10) {
+    if (max < puntaje[b].innerHTML) {
       seg = max;
-      max = puntaje[i].innerHTML;
+      max = puntaje[b].innerHTML;
     }
     if (pais[42].innerHTML == max) document.getElementById('1B').value = pais[41].innerHTML;
     if (pais[52].innerHTML == max) document.getElementById('1B').value = pais[51].innerHTML;
@@ -268,10 +269,10 @@ function handleSubmit(event) {
     if (pais[62].innerHTML == seg) document.getElementById('2B').value = pais[61].innerHTML;
     if (pais[72].innerHTML == seg) document.getElementById('2B').value = pais[71].innerHTML;
   }
-  for (let i = 82; i <= 112; i += 10) {
-    if (max < puntaje[i].innerHTML) {
+  for (let c = 82; c <= 112; c += 10) {
+    if (max < puntaje[c].innerHTML) {
       seg = max;
-      max = puntaje[i].innerHTML;
+      max = puntaje[c].innerHTML;
     }
     if (pais[82].innerHTML == max)  document.getElementById('1C').value = pais[81].innerHTML;
     if (pais[92].innerHTML == max)  document.getElementById('1C').value = pais[91].innerHTML;
@@ -282,10 +283,10 @@ function handleSubmit(event) {
     if (pais[102].innerHTML == seg) document.getElementById('2C').value = pais[101].innerHTML;
     if (pais[112].innerHTML == seg) document.getElementById('2C').value = pais[111].innerHTML;
   }
-  for (let i = 122; i <= 152; i += 10) {
-    if (max < puntaje[i].innerHTML) {
+  for (let d = 122; d <= 152; d += 10) {
+    if (max < puntaje[d].innerHTML) {
       seg = max;
-      max = puntaje[i].innerHTML;
+      max = puntaje[d].innerHTML;
     }
     if (pais[122].innerHTML == max) document.getElementById('1D').value = pais[121].innerHTML;
     if (pais[132].innerHTML == max) document.getElementById('1D').value = pais[131].innerHTML;
@@ -296,10 +297,10 @@ function handleSubmit(event) {
     if (pais[142].innerHTML == seg) document.getElementById('2D').value = pais[141].innerHTML;
     if (pais[152].innerHTML == seg) document.getElementById('2D').value = pais[151].innerHTML;
   }
-  for (let i = 162; i <= 192; i += 10) {
-    if (max < puntaje[i].innerHTML) {
+  for (let e = 162; e <= 192; e += 10) {
+    if (max < puntaje[e].innerHTML) {
       seg = max;
-      max = puntaje[i].innerHTML;
+      max = puntaje[e].innerHTML;
     }
     if (pais[162].innerHTML == max) document.getElementById('1E').value = pais[161].innerHTML;
     if (pais[172].innerHTML == max) document.getElementById('1E').value = pais[171].innerHTML;
@@ -310,10 +311,10 @@ function handleSubmit(event) {
     if (pais[182].innerHTML == seg) document.getElementById('2E').value = pais[181].innerHTML;
     if (pais[192].innerHTML == seg) document.getElementById('2E').value = pais[191].innerHTML;
   }
-  for (let i = 202; i <= 232; i += 10) {
-    if (max < puntaje[i].innerHTML) {
+  for (let f = 202; f <= 232; f += 10) {
+    if (max < puntaje[f].innerHTML) {
       seg = max;
-      max = puntaje[i].innerHTML;
+      max = puntaje[f].innerHTML;
     }
     if (pais[202].innerHTML == max) document.getElementById('1F').value = pais[201].innerHTML;
     if (pais[212].innerHTML == max) document.getElementById('1F').value = pais[211].innerHTML;
@@ -324,10 +325,10 @@ function handleSubmit(event) {
     if (pais[222].innerHTML == seg) document.getElementById('2F').value = pais[221].innerHTML;
     if (pais[232].innerHTML == seg) document.getElementById('2F').value = pais[231].innerHTML;
   }
-  for (let i = 242; i <= 272; i += 10) {
-    if (max < puntaje[i].innerHTML) {
+  for (let g = 242; g <= 272; g += 10) {
+    if (max < puntaje[g].innerHTML) {
       seg = max;
-      max = puntaje[i].innerHTML;
+      max = puntaje[g].innerHTML;
     }
     if (pais[242].innerHTML == max) document.getElementById('1G').value = pais[241].innerHTML;
     if (pais[252].innerHTML == max) document.getElementById('1G').value = pais[251].innerHTML;
@@ -338,10 +339,10 @@ function handleSubmit(event) {
     if (pais[262].innerHTML == seg) document.getElementById('2G').value = pais[261].innerHTML;
     if (pais[272].innerHTML == seg) document.getElementById('2G').value = pais[271].innerHTML;
   }
-  for (let i = 282; i <= 312; i += 10) {
-    if (max < puntaje[i].innerHTML) {
+  for (let h = 282; h <= 312; h += 10) {
+    if (max < puntaje[h].innerHTML) {
       seg = max;
-      max = puntaje[i].innerHTML;
+      max = puntaje[h].innerHTML;
     }
     if (pais[282].innerHTML == max) document.getElementById('1H').value = pais[281].innerHTML;
     if (pais[292].innerHTML == max) document.getElementById('1H').value = pais[291].innerHTML;
@@ -353,7 +354,7 @@ function handleSubmit(event) {
     if (pais[312].innerHTML == seg) document.getElementById('2H').value = pais[311].innerHTML;
   }
 }
-
+// llenamos cuartos
 function cuartos() {
   let cuartos1A = document.getElementById('cuartos1A').value;
   let cuartos2B = document.getElementById('cuartos2B').value;
@@ -390,7 +391,7 @@ function cuartos() {
   if (cuartos2G < cuartos1H) document.getElementById('cuar8').value = document.getElementById('1H').value;
 
 }
-
+// llenamos semis
 function semis() {
   let semis1 = document.getElementById('semis1').value;
   let semis2 = document.getElementById('semis2').value;
@@ -410,7 +411,7 @@ function semis() {
   if (semis7 > semis8) document.getElementById('sf4').value = document.getElementById('cuar7').value;
   if (semis7 < semis8) document.getElementById('sf4').value = document.getElementById('cuar8').value;
 }
-
+// llenamos finalistas
 function final() {
   let final1 = document.getElementById('f1').value;
   let final2 = document.getElementById('f2').value;
@@ -422,21 +423,25 @@ function final() {
   if (final3 > final4) document.getElementById('final2').value = document.getElementById('sf3').value;
   if (final3 < final4) document.getElementById('final2').value = document.getElementById('sf4').value;
 }
-
+// imprimimos campeon
 function campeon() {
   let camp1 = document.getElementById('camp1').value;
   let camp2 = document.getElementById('camp2').value;
 
   if (camp1 > camp2) {
     document.getElementById('ganador').hidden = false;
-    document.getElementById('win').value = document.getElementById('final1').value;
+    document.getElementById('win').textContent = document.getElementById('final1').value;
   }
   if (camp1 < camp2) {
     document.getElementById('ganador').hidden = false;
-    document.getElementById('win').value = document.getElementById('final2').value;
+    document.getElementById('win').textContent = document.getElementById('final2').value;
   }
+  let win = document.getElementById('win').textContent
+  if (win.includes("Argentina"))
+    document.getElementById('bandera').hidden = false;
+  else console.log('Queremos VAR');
 }
-
+// recargar
 function recargar() {
   location.reload()
 }
